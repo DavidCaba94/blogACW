@@ -8,6 +8,71 @@
     margin-left: 0px;
 }
 
+.bloque-paginacion {
+	max-width: 1200px;
+	margin: 0 auto;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-wrap: nowrap;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+.boton-paginacion {
+	width: 100px;
+	height: 30px;
+	background-color: #0083ff;
+	font-family: "Josefin Sans", Sans-serif;
+	font-size: 14px;
+	font-weight: 400;
+  	color: white;
+	border-radius: 25px;
+	text-align: center;
+	padding-top: 5px;
+	cursor: pointer;
+}
+
+.numeros-pag {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-wrap: nowrap;
+	margin-left: 10px;
+}
+
+.numPag {
+	width: 30px;
+	height: 30px;
+	margin-right: 10px;
+	background-color: #ffffff;
+	font-family: "Josefin Sans", Sans-serif;
+	font-size: 14px;
+	font-weight: 400;
+  	color: #0083ff;
+	border: 1px solid #0083ff;
+	border-radius: 50px;
+	text-align: center;
+	padding-top: 5px;
+	cursor: pointer;
+}
+
+.numPag-seleccionado {
+	width: 30px;
+	height: 30px;
+	margin-right: 10px;
+	background-color: #0083ff;
+	font-family: "Josefin Sans", Sans-serif;
+	font-size: 14px;
+	font-weight: 400;
+  	color: #ffffff;
+	border: 1px solid #0083ff;
+	border-radius: 50px;
+	text-align: center;
+	padding-top: 5px;
+	cursor: pointer;
+}
+
 /*Small devices (landscape phones, 576px and up)*/
 @media (min-width: 576px) {
 
@@ -25,5 +90,5 @@
 
 /*Extra large devices (large desktops, 1200px and up)*/
 @media (min-width: 1200px) {
-	
+
 }

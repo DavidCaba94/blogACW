@@ -1,3 +1,6 @@
+var arrayPosts = [];
+var pagina = 1;
+
 $(document).ready(function(){
 
     const xhttp = new XMLHttpRequest();
@@ -9,12 +12,49 @@ $(document).ready(function(){
             let posts = JSON.parse(this.responseText);
 
             for(let item of posts) {
-                console.log(item.id);
-                console.log(item.titulo);
-                console.log(item.descripcion);
-                console.log(item.imagen);
-                console.log(item.url);
+                arrayPosts.push(item);
             }
         }
     }
+
+    console.log(arrayPosts);
+
+    $("#anterior").on("click", function() {
+        pagina--;
+        paginarPosts();
+    });
+
+    $("#siguiente").on("click", function() {
+        pagina++;
+        paginarPosts();
+    });
+
+    setTimeout(function() {
+		paginarPosts();
+        addNumerosPag();
+	}, 1000);
 });
+
+function paginarPosts() {
+    for(var i = (pagina-1)*5; i < pagina*5; i++){
+        if(arrayPosts[i] != undefined){
+            console.log(arrayPosts[i]);
+        }
+    }
+    addNumerosPag();
+}
+
+function addNumerosPag() {
+    $("#numerosPag").html('');
+    for(var i = 0; i < arrayPosts.length/5; i++) {
+        if(i == pagina-1) {
+            $("#numerosPag").append(
+                '<div class="numPag-seleccionado">'+ (i+1) +'</div>'
+            );
+        } else {
+            $("#numerosPag").append(
+                '<div class="numPag">'+ (i+1) +'</div>'
+            );
+        }
+    }
+}
