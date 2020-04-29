@@ -30,15 +30,24 @@ $(document).ready(function(){
     });
 
     setTimeout(function() {
+        arrayPosts = arrayPosts.reverse();
 		paginarPosts();
         addNumerosPag();
 	}, 1000);
 });
 
 function paginarPosts() {
+    $("#contenedor-posts").html('');
     for(var i = (pagina-1)*5; i < pagina*5; i++){
         if(arrayPosts[i] != undefined){
-            console.log(arrayPosts[i]);
+            $("#contenedor-posts").append(
+                '<div class="box-post">'+
+                    '<img class="img-post" src="'+ arrayPosts[i].imagen +'" />'+
+                    '<p class="titulo-post">'+ arrayPosts[i].titulo +'</p>'+
+                    '<p class="descripcion-post">'+ arrayPosts[i].descripcion +'</p>'+
+                    '<a href="'+ arrayPosts[i].url +'"><div class="boton-post">Ir al post</div></a>'+
+                '</div>'
+            );
         }
     }
     addNumerosPag();
@@ -49,12 +58,17 @@ function addNumerosPag() {
     for(var i = 0; i < arrayPosts.length/5; i++) {
         if(i == pagina-1) {
             $("#numerosPag").append(
-                '<div class="numPag-seleccionado">'+ (i+1) +'</div>'
+                '<div class="numPag-seleccionado" onclick="cambiarPagina('+(i+1)+')">'+ (i+1) +'</div>'
             );
         } else {
             $("#numerosPag").append(
-                '<div class="numPag">'+ (i+1) +'</div>'
+                '<div class="numPag" onclick="cambiarPagina('+(i+1)+')">'+ (i+1) +'</div>'
             );
         }
     }
+}
+
+function cambiarPagina(num) {
+    pagina = num;
+    paginarPosts();
 }

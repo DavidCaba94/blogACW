@@ -73,6 +73,20 @@
 	cursor: pointer;
 }
 
+.contenedor-posts {
+	margin-top: 20px;
+	margin-bottom: 40px;
+}
+
+.box-post {
+	max-width: 1200px;
+	height: auto;
+	margin: 0 auto;
+	margin-top: 20px;
+	border: 1px solid #c7c7c7;
+	border-radius: 10px;
+}
+
 /*Small devices (landscape phones, 576px and up)*/
 @media (min-width: 576px) {
 
