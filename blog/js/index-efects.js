@@ -1,5 +1,6 @@
 var arrayPosts = [];
 var pagina = 1;
+var nPostPorPag = 5;
 
 $(document).ready(function(){
 
@@ -38,7 +39,7 @@ $(document).ready(function(){
 
 function paginarPosts() {
     $("#contenedor-posts").html('');
-    for(var i = (pagina-1)*5; i < pagina*5; i++){
+    for(var i = (pagina-1)*nPostPorPag; i < pagina*nPostPorPag; i++){
         if(arrayPosts[i] != undefined){
             $("#contenedor-posts").append(
                 '<div class="box-post">'+
@@ -55,7 +56,7 @@ function paginarPosts() {
 
 function addNumerosPag() {
     $("#numerosPag").html('');
-    for(var i = 0; i < arrayPosts.length/5; i++) {
+    for(var i = 0; i < arrayPosts.length/nPostPorPag; i++) {
         if(i == pagina-1) {
             $("#numerosPag").append(
                 '<div class="numPag-seleccionado" onclick="cambiarPagina('+(i+1)+')">'+ (i+1) +'</div>'
