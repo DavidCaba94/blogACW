@@ -39,6 +39,7 @@ $(document).ready(function(){
 
     setTimeout(function() {
         arrayPosts = arrayPosts.reverse();
+        $("#loading").css("display", "none");
 		paginarPosts();
 	}, 1500);
 });
