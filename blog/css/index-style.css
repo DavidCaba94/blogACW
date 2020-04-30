@@ -167,6 +167,19 @@ a:hover {
 	cursor: pointer;
 }
 
+.boton-post {
+	width: 100px;
+	height: 30px;
+	margin: 0 auto;
+	margin-top: 10px;
+	background-color: #0083ff;
+	color: #ffffff;
+	border-radius: 10px;
+	text-align: center;
+	padding-top: 2px;
+	cursor: pointer;
+}
+
 /* FAKE POST CARGA INICIAL */
 .img-post-fake {
 	width: 100%;
