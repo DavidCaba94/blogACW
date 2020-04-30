@@ -18,8 +18,6 @@ $(document).ready(function(){
         }
     }
 
-    console.log(arrayPosts);
-
     $("#anterior").on("click", function() {
         pagina--;
         paginarPosts();
@@ -30,10 +28,14 @@ $(document).ready(function(){
         paginarPosts();
     });
 
+    $("#num-posts").change(function(){
+        var numSelected = $(this).children("option:selected").val();
+        cambiarPostsPag(numSelected);
+    });
+
     setTimeout(function() {
         arrayPosts = arrayPosts.reverse();
 		paginarPosts();
-        addNumerosPag();
 	}, 1000);
 });
 
@@ -71,5 +73,11 @@ function addNumerosPag() {
 
 function cambiarPagina(num) {
     pagina = num;
+    paginarPosts();
+}
+
+function cambiarPostsPag(num) {
+    pagina = 1;
+    nPostPorPag = num;
     paginarPosts();
 }
