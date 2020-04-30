@@ -19,13 +19,17 @@ $(document).ready(function(){
     }
 
     $("#anterior").on("click", function() {
-        pagina--;
-        paginarPosts();
+        if(pagina > 1) {
+            pagina--;
+            paginarPosts();
+        }
     });
 
     $("#siguiente").on("click", function() {
-        pagina++;
-        paginarPosts();
+        if(pagina < arrayPosts.length/nPostPorPag) {
+            pagina++;
+            paginarPosts();
+        }
     });
 
     $("#num-posts").change(function(){
@@ -36,7 +40,7 @@ $(document).ready(function(){
     setTimeout(function() {
         arrayPosts = arrayPosts.reverse();
 		paginarPosts();
-	}, 1000);
+	}, 1500);
 });
 
 function paginarPosts() {
@@ -61,7 +65,7 @@ function addNumerosPag() {
     for(var i = 0; i < arrayPosts.length/nPostPorPag; i++) {
         if(i == pagina-1) {
             $("#numerosPag").append(
-                '<div class="numPag-seleccionado" onclick="cambiarPagina('+(i+1)+')">'+ (i+1) +'</div>'
+                '<div class="numPag-seleccionado">'+ (i+1) +'</div>'
             );
         } else {
             $("#numerosPag").append(
