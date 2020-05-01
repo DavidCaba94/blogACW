@@ -231,6 +231,46 @@ a:hover {
 	text-align: center;
 }
 
+.footer {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: auto;
+	margin-top: 70px;
+	padding-top: 20px;
+	background-color: #2f2f2f;
+	text-align: center;
+	font-family: "Josefin Sans", Sans-serif;
+    font-size: 24px;
+    font-weight: 400;
+	color: #ffffff;
+}
+
+.copyright {
+	font-weight: 200;
+	margin-top: 20px;
+	margin-left: 50px;
+	margin-right: 50px;
+}
+
+.box-redes {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.compartir-redes {
+	width: 40px;
+    margin-top: 20px;
+    margin-left: 30px;
+    margin-right: 30px;
+    margin-bottom: 30px;
+	cursor: pointer;
+}
+
 /* FAKE POST CARGA INICIAL */
 .img-post-fake {
 	width: 100%;
