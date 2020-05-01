@@ -7,7 +7,7 @@ var resultadosEncontrados = 0;
 $(document).ready(function(){
 
     const xhttp = new XMLHttpRequest();
-    xhttp.open('GET', 'blog/json/posts.json', true);
+    xhttp.open('GET', 'post/json/posts.json', true);
     xhttp.send();
 
     xhttp.onreadystatechange = function() {
