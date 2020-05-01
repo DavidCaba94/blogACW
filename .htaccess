@@ -12,10 +12,6 @@ SetEnv HTTP_MOD_REWRITE On
 RewriteEngine on
 RewriteCond %{HTTP:Authorization} ^(.*)
 RewriteRule . - [E=HTTP_AUTHORIZATION:%1]
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_FILENAME}.html -f
-RewriteRule ^(.*)$ $1.html
-
 
 #Domain: alcortewear.es
 RewriteRule . - [E=REWRITEBASE:/]
@@ -51,6 +47,9 @@ RewriteCond %{REQUEST_FILENAME} -l [OR]
 RewriteCond %{REQUEST_FILENAME} -d
 RewriteRule ^.*$ - [NC,L]
 RewriteRule ^.*$ %{ENV:REWRITEBASE}index.php [NC,L]
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^(.*)$ $1.html
 </IfModule>
 
 AddType application/vnd.ms-fontobject .eot
