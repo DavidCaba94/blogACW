@@ -32,6 +32,15 @@ $(document).ready(function(){
         }
     });
 
+    $("#btn-buscar").on("click", function() {
+        var texto = $("#txt-buscar").val();
+        if(texto == "") {
+            paginarPosts();
+        } else {
+            buscarPost(texto);
+        }
+    });
+
     $("#num-posts").change(function(){
         var numSelected = $(this).children("option:selected").val();
         cambiarPostsPag(numSelected);
@@ -85,4 +94,33 @@ function cambiarPostsPag(num) {
     pagina = 1;
     nPostPorPag = num;
     paginarPosts();
+}
+
+function buscarPost(texto) {
+    var resultadosEncontrados = false;
+    $("#contenedor-posts").html('');
+
+    for(var i = (pagina-1)*nPostPorPag; i < pagina*nPostPorPag; i++){
+        if(arrayPosts[i] != undefined && arrayPosts[i].titulo.includes(texto)){
+            $("#contenedor-posts").append(
+                '<div class="box-post">'+
+                    '<img class="img-post" src="'+ arrayPosts[i].imagen +'" />'+
+                    '<p class="titulo-post">'+ arrayPosts[i].titulo +'</p>'+
+                    '<p class="descripcion-post">'+ arrayPosts[i].descripcion +'</p>'+
+                    '<a href="'+ arrayPosts[i].url +'"><div class="boton-post">Ir al post</div></a>'+
+                '</div>'
+            );
+            resultadosEncontrados = true;
+        }
+    }
+
+    if(!resultadosEncontrados) {
+        $("#contenedor-posts").append(
+            '<div class="box-sin-resultados">'+
+                '<p class="sin-resultados">No se han encontrado resultados para <strong>'+ texto +'</strong></p>'+
+            '</div>'
+        );
+    }
+
+    addNumerosPag();
 }

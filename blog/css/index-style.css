@@ -176,8 +176,59 @@ a:hover {
 	color: #ffffff;
 	border-radius: 10px;
 	text-align: center;
-	padding-top: 2px;
+	padding-top: 5px;
 	cursor: pointer;
+	font-family: "Josefin Sans", Sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.boton-buscar {
+	width: 100px;
+	height: 30px;
+	margin-top: 10px;
+	background-color: #0083ff;
+	color: #ffffff;
+	border-radius: 10px;
+	text-align: center;
+	padding-top: 5px;
+	cursor: pointer;
+	font-family: "Josefin Sans", Sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.boton-post:hover {
+	background-color: #004c94;
+}
+
+.boton-buscar:hover {
+	background-color: #004c94;
+}
+
+.box-buscador {
+	display: flex;
+	align-items: flex-end;
+	justify-content: flex-end;
+	flex-wrap: nowrap;
+	max-width: 900px;
+	margin: 0 auto;
+	padding: 5px;
+}
+
+.box-sin-resultados {
+	max-width: 900px;
+	margin: 0 auto;
+	margin-top: 40px;
+	text-align: center;
+}
+
+.sin-resultados {
+	font-family: "Josefin Sans", Sans-serif;
+    font-size: 24px;
+    font-weight: 400;
+	color: #9b9b9b;
+	text-align: center;
 }
 
 /* FAKE POST CARGA INICIAL */
@@ -255,6 +306,72 @@ a:hover {
 	}
 }
 /* FIN ICONO LOADING */
+
+/* INPUT BUSCAR */
+.form__group {
+  position: relative;
+  padding: 15px 0 0;
+  margin-top: 10px;
+  margin-right: 20px;
+  width: 300px;
+  font-family: "Josefin Sans", Sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.form__field {
+  width: 100%;
+  border: 0;
+  border-bottom: 2px solid #9b9b9b;
+  outline: 0;
+  color: #616161;
+  padding: 3px 0;
+  background: transparent;
+  transition: border-color 0.2s;
+  font-size: 16px;
+  font-weight: 200;
+}
+.form__field::placeholder {
+  color: transparent;
+}
+.form__field:placeholder-shown ~ .form__label {
+  font-size: 16px;
+  cursor: text;
+  top: 20px;
+}
+
+.form__label {
+  position: absolute;
+  top: 0;
+  display: block;
+  transition: 0.2s;
+  font-size: 14px;
+  color: #9b9b9b;
+}
+
+.form__field:focus {
+  padding-bottom: 2px;
+  font-weight: 400;
+  border-width: 3px;
+  border-image: linear-gradient(to right, #004c94, #0083ff);
+  border-image-slice: 1;
+}
+.form__field:focus ~ .form__label {
+  position: absolute;
+  top: 0;
+  display: block;
+  transition: 0.2s;
+  font-size: 14px;
+  color: #004c94;
+  font-weight: 400;
+}
+
+/* reset input */
+.form__field:required, .form__field:invalid {
+  box-shadow: none;
+}
+
+/* FIN INPUT BUSCAR */
 
 /*Small devices (landscape phones, 576px and up)*/
 @media (min-width: 576px) {
