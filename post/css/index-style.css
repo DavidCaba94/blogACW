@@ -406,12 +406,26 @@ a:hover {
   font-weight: 400;
 }
 
-/* reset input */
 .form__field:required, .form__field:invalid {
   box-shadow: none;
 }
-
 /* FIN INPUT BUSCAR */
+
+/* CARRUSEL */
+.carousel {
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.carousel-inner {
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+    margin-top: 30px;
+    overflow: hidden;
+}
+/* FIN CARRUSEL */
 
 /*Small devices (landscape phones, 576px and up)*/
 @media (min-width: 576px) {
