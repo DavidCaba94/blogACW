@@ -93,6 +93,8 @@ a:hover {
 .contenedor-posts {
 	margin-top: 20px;
 	margin-bottom: 40px;
+	padding-left: 5px;
+	padding-right: 5px;
 }
 
 .box-post {
@@ -142,29 +144,29 @@ a:hover {
 }
 
 .titulo-menu {
-	font-family: "Josefin Sans", Sans-serif;
-	font-size: 32px;
-	font-weight: 700;
-	color: #ffffff;
-	margin-left: 40px;
-	margin-bottom: 0;
-	padding-top: 10px;
+    font-family: "Josefin Sans", Sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: #ffffff;
+    margin-left: 10px;
+    margin-bottom: 0;
+    padding-top: 10px;
 }
 
 .tienda-menu {
-	font-family: "Josefin Sans", Sans-serif;
-	font-size: 20px;
-	font-weight: 400;
-	color: #ffffff;
-	margin-left: 240px;
-	margin-bottom: 0;
-	padding-top: 10px;
+    font-family: "Josefin Sans", Sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    color: #ffffff;
+    margin-left: 20px;
+    margin-bottom: 0;
+    padding-top: 10px;
 }
 
 .img-login {
-	width: 70px;
-	margin-left: 30px;
-	cursor: pointer;
+    width: 50px;
+    margin-left: 0px;
+    cursor: pointer;
 }
 
 .boton-post {
@@ -422,24 +424,63 @@ a:hover {
     position: relative;
     max-width: 900px;
     margin: 0 auto;
-    margin-top: 30px;
+    margin-top: 0px;
     overflow: hidden;
 }
 /* FIN CARRUSEL */
 
 /*Small devices (landscape phones, 576px and up)*/
 @media (min-width: 576px) {
+	.titulo-menu {
+	    font-size: 25px;
+	}
 
+	.tienda-menu {
+	    font-size: 20px;
+	    margin-left: 120px;
+	}
 }
 
 /*Medium devices (tablets, 768px and up)*/
 @media (min-width: 768px) {
+	.titulo-menu {
+	    margin-left: 40px;
+	}
 
+	.img-login {
+	    margin-left: 30px;
+	}
+
+	.tienda-menu {
+	    margin-left: 220px;
+	}
 }
 
 /*Large devices (desktops, 992px and up)*/
 @media (min-width: 992px) {
+	.titulo-menu {
+		font-size: 32px;
+		margin-left: 40px;
+	}
 
+	.tienda-menu {
+		font-size: 20px;
+		margin-left: 240px;
+	}
+
+	.carousel-inner {
+	    margin-top: 30px;
+	}
+
+	.img-login {
+		width: 70px;
+		margin-left: 30px;
+	}
+
+	.contenedor-posts {
+		padding-left: 0px;
+		padding-right: 0px;
+	}
 }
 
 /*Extra large devices (large desktops, 1200px and up)*/
