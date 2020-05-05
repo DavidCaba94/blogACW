@@ -173,6 +173,26 @@ a:hover {
     cursor: pointer;
 }
 
+.img-post {
+    max-width: 100%;
+}
+
+.titulo-post {
+	font-family: "Josefin Sans", Sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: #2f2f2f;
+	margin-top: 20px;
+}
+
+.descripcion-post {
+	font-family: "Josefin Sans", Sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: #2f2f2f;
+	text-align: justify;
+}
+
 .boton-post {
 	width: 100px;
 	height: 30px;

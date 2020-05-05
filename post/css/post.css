@@ -1,16 +1,17 @@
-
 .contenedor-titulo {
 	max-width: 900px;
 	margin: 0 auto;
 	padding-top: 30px;
+	padding-left: 10px;
+    padding-right: 10px;
 }
 
 .titulo-post {
-	font-family: "Josefin Sans", Sans-serif;
-	font-size: 48px;
-	font-weight: 700;
-  	color: #2f2f2f;
-	text-align: center;
+    font-family: "Josefin Sans", Sans-serif;
+    font-size: 35px;
+    font-weight: 700;
+    color: #2f2f2f;
+    text-align: center;
 }
 
 .escrito-por {
@@ -19,6 +20,7 @@
 	font-weight: 400;
   	color: #2f2f2f;
 	text-align: left;
+	margin-bottom: 0px;
 }
 
 .autor {
@@ -34,18 +36,19 @@
 	margin-top: 50px;
 	font-family: "Josefin Sans", Sans-serif;
 	color: #2f2f2f;
-	text-align: justify;
+	padding: 10px;
 }
 
 .titulo-seccion {
-	font-size: 32px;
-	font-weight: 700;
-	margin-top: 50px;
+    font-size: 25px;
+    font-weight: 700;
+    margin-top: 50px;
 }
 
 .texto-seccion {
 	font-size: 16px;
 	font-weight: 400;
+	text-align: justify;
 }
 
 .contenedor-productos {
@@ -53,6 +56,10 @@
 	align-items: center;
 	justify-content: center;
 	flex-wrap: nowrap;
+}
+
+.carousel {
+    padding: 10px;
 }
 
 /* PRODUCTOS */
@@ -98,6 +105,7 @@ body {
   padding: 15px;
   margin: 15px auto;
   background-color: #fff;
+  border-radius: 15px;
 }
 
 @media (max-width: 991px) {
@@ -108,7 +116,7 @@ body {
 
 @media (max-width: 767px) {
   .el-wrapper {
-    width: 290px;
+    width: 280px;
     margin: 30px auto;
   }
 }
@@ -127,7 +135,7 @@ body {
 }
 
 .el-wrapper:hover .add-to-cart {
-  left: 50%;
+  left: 60%;
 }
 
 .el-wrapper:hover .img {
@@ -236,7 +244,7 @@ body {
   font-family: 'Lato', sans-serif;
   font-size: 12px;
   text-transform: uppercase;
-  color: #8c8c8c;
+  color: #3f96cd;
 }
 
 .a-size {
@@ -333,6 +341,14 @@ body {
 
 /* FIN PRODUCTOS */
 
+.owl-carousel .owl-item img {
+    display: unset !important;
+}
+
+.owl-theme .owl-nav {
+    display: none !important;
+}
+
 /*Small devices (landscape phones, 576px and up)*/
 @media (min-width: 576px) {
 
@@ -340,12 +356,28 @@ body {
 
 /*Medium devices (tablets, 768px and up)*/
 @media (min-width: 768px) {
+	.titulo-post {
+		font-size: 40px;
+	}
 
+	.titulo-seccion {
+		font-size: 32px;
+	}
 }
 
 /*Large devices (desktops, 992px and up)*/
 @media (min-width: 992px) {
+	.titulo-post {
+		font-size: 48px;
+	}
 
+	.escrito-por {
+	    margin-bottom: -10px;
+	}
+
+	.el-wrapper {
+	    width: 270px;
+	}
 }
 
 /*Extra large devices (large desktops, 1200px and up)*/
