@@ -62,6 +62,18 @@
     padding: 10px;
 }
 
+.tabla-especificaciones {
+	max-width: 400px;
+	margin: 0 auto;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	text-align: center;
+}
+
+.especificacion {
+	font-weight: 700;
+}
+
 /* PRODUCTOS */
 
 .d-flex {
