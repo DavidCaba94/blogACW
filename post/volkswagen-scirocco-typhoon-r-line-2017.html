@@ -30,7 +30,18 @@
           <a href="/blog"><img class="img-menu" src="img/logo-menu.png" /></a>
           <p class="titulo-menu">AL CORTE WEAR</p>
           <a href="/" target="_blank"><p class="tienda-menu">TIENDA</p></a>
-          <a href="/iniciar-sesion?back=my-account" target="_blank"><img class="img-login" src="img/user.png" /></a>
+          <div class="dropdown">
+              <div id="desplegable-login" class="box-sesion dropbtn">
+                  <img class="img-login" src="img/user.png" />
+                  <p class="text-sesion">Iniciar sesión</p>
+              </div>
+              <div id="myDropdown" class="dropdown-content">
+                  <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Email">
+                  <input type="password" class="form-control" id="password" placeholder="Contraseña">
+                  <div id="boton-login" class="boton-login">Login</div>
+                  <a href="/iniciar-sesion?create_account=1" target="_blank"><div class="boton-registro">Registrarse</div></a>
+              </div>
+          </div>
       </div>
       <div class="contenedor-titulo">
           <h1 class="titulo-post">Volkswagen Scirocco Typhoon R Line 2017</h1>

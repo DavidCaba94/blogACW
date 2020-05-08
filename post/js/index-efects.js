@@ -75,6 +75,26 @@ $(document).ready(function(){
         $("#loading").css("display", "none");
 		paginarPosts();
 	}, 1500);
+
+    $("#desplegable-login").on("click", function() {
+        $("#myDropdown").addClass("show");
+    });
+
+    // Cerrar dropdown login si pincho fuera
+    window.onclick = function(event) {
+      if (!event.target.matches('.dropbtn') && !event.target.matches('.img-login') && !event.target.matches('.text-sesion')
+          && !event.target.matches('.form-control') && !event.target.matches('.boton-login') && !event.target.matches('.boton-registro')
+          && !event.target.matches('.dropdown-content')) {
+        var dropdowns = document.getElementsByClassName("dropdown-content");
+        var i;
+        for (i = 0; i < dropdowns.length; i++) {
+          var openDropdown = dropdowns[i];
+          if (openDropdown.classList.contains('show')) {
+            openDropdown.classList.remove('show');
+          }
+        }
+      }
+    }
 });
 
 function paginarPosts() {

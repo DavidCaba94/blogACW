@@ -25,7 +25,18 @@
           <a href="blog"><img class="img-menu" src="post/img/logo-menu.png" /></a>
           <h1 class="titulo-menu">AL CORTE WEAR</h1>
           <a href="/" target="_blank"><p class="tienda-menu">TIENDA</p></a>
-          <a href="/iniciar-sesion?back=my-account" target="_blank"><img class="img-login" src="post/img/user.png" /></a>
+          <div class="dropdown">
+              <div id="desplegable-login" class="box-sesion dropbtn">
+                  <img class="img-login" src="post/img/user.png" />
+                  <p class="text-sesion">Iniciar sesión</p>
+              </div>
+              <div id="myDropdown" class="dropdown-content">
+                  <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Email">
+                  <input type="password" class="form-control" id="password" placeholder="Contraseña">
+                  <div id="boton-login" class="boton-login">Login</div>
+                  <a href="/iniciar-sesion?create_account=1" target="_blank"><div class="boton-registro">Registrarse</div></a>
+              </div>
+          </div>
       </div>
       <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
           <ol class="carousel-indicators">

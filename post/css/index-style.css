@@ -141,6 +141,7 @@ a:hover {
 	width: 100%;
 	height: 80px;
 	background-color: #2f2f2f;
+	padding: 5px;
 }
 
 .img-menu {
@@ -169,7 +170,6 @@ a:hover {
 
 .img-login {
     width: 50px;
-    margin-left: 0px;
     cursor: pointer;
 }
 
@@ -295,6 +295,84 @@ a:hover {
     margin-right: 30px;
     margin-bottom: 30px;
 	cursor: pointer;
+}
+
+.box-sesion {
+	display: flex;
+	flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+	width: 150px;
+	margin-left: 0px;
+	cursor: pointer;
+}
+
+.text-sesion {
+	font-family: "Josefin Sans", Sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+	color: #ffffff;
+	margin-top: 20px;
+}
+
+.boton-login {
+    width: 100px;
+    height: 30px;
+	margin: 0 auto;
+    margin-top: 10px;
+    background-color: #00e05f;
+    color: #ffffff;
+    border-radius: 25px;
+    text-align: center;
+    padding-top: 5px;
+    cursor: pointer;
+    font-family: "Josefin Sans", Sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.boton-login:hover {
+	background-color: #00bb4f;
+}
+
+.boton-registro {
+    width: 100px;
+    height: 30px;
+	margin: 0 auto;
+    margin-top: 10px;
+    background-color: #0083ff;
+    color: #ffffff;
+    border-radius: 25px;
+    text-align: center;
+    padding-top: 5px;
+    cursor: pointer;
+    font-family: "Josefin Sans", Sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.boton-registro:hover {
+	background-color: #004c94;
+}
+
+.dropdown-content {
+	display: none;
+	position: absolute;
+	background-color: #f1f1f1;
+	width: auto;
+	overflow: auto;
+	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	border-radius: 10px;
+	padding: 5px;
+	z-index: 100;
+}
+
+.show {
+	display: block;
+}
+
+.form-control {
+    margin-bottom: 5px !important;
 }
 
 /* FAKE POST CARGA INICIAL */
@@ -456,12 +534,12 @@ a:hover {
 /*Small devices (landscape phones, 576px and up)*/
 @media (min-width: 576px) {
 	.titulo-menu {
-	    font-size: 25px;
+	    font-size: 20px;
 	}
 
 	.tienda-menu {
-	    font-size: 20px;
-	    margin-left: 120px;
+	    font-size: 16px;
+	    margin-left: 80px;
 	}
 }
 
@@ -471,12 +549,8 @@ a:hover {
 	    margin-left: 40px;
 	}
 
-	.img-login {
-	    margin-left: 30px;
-	}
-
 	.tienda-menu {
-	    margin-left: 220px;
+	    margin-left: 190px;
 	}
 }
 
@@ -498,12 +572,15 @@ a:hover {
 
 	.img-login {
 		width: 70px;
-		margin-left: 30px;
 	}
 
 	.contenedor-posts {
 		padding-left: 0px;
 		padding-right: 0px;
+	}
+
+	.box-sesion {
+	    margin-left: 30px;
 	}
 }
 
