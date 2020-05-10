@@ -80,6 +80,10 @@ $(document).ready(function(){
         $("#myDropdown").addClass("show");
     });
 
+    $("#boton-login").on("click", function() {
+        obtenerUsuario();
+    });
+
     // Cerrar dropdown login si pincho fuera
     window.onclick = function(event) {
       if (!event.target.matches('.dropbtn') && !event.target.matches('.img-login') && !event.target.matches('.text-sesion')
@@ -199,4 +203,18 @@ function buscarPost(texto) {
     } else {
         paginarPostsBuscados();
     }
+}
+
+function obtenerUsuario() {
+    $.ajax({
+      url: 'post/rest/obtener_usuarios.php',
+      dataType: 'json',
+      data: ({email: $("#email").val(), password: $("#password").val()}),
+      success: function(data) {
+          console.log(data.users[0]);
+      },
+      error: function(error) {
+          console.log(error);
+      }
+    });
 }

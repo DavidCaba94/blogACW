@@ -5,9 +5,10 @@ class Users
     function __construct()
     {
     }
-    public static function getAll()
+    public static function getAll($email,$pass)
     {
-        $consulta = "SELECT * FROM user";
+        //$consulta = "SELECT id_customer, firstname, lastname, email, passwd FROM psac_customer WHERE email = '$email' AND passwd = '$pass'";
+        $consulta = "SELECT id_customer, firstname, lastname, email, passwd FROM psac_customer WHERE email = '$email'";
         try {
             $comando = Database::getInstance()->getDb()->prepare($consulta);
             $comando->execute();
@@ -29,9 +30,9 @@ class Users
         }
     }
 
-    public static function getById($username)
+    public static function getUserLogin($email,$pass)
     {
-        $consulta = "SELECT * FROM user WHERE username = ?";
+        $consulta = "SELECT id_customer, firstname, lastname, email, passwd FROM psac_customer";
         try {
             $comando = Database::getInstance()->getDb()->prepare($consulta);
             $comando->execute(array($username));
