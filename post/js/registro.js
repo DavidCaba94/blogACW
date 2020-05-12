@@ -49,16 +49,21 @@ function registrarUsuario() {
     var email = $("#email").val();
     var password1 = $("#password1").val();
 
+    $(".formulario").css("display","none");
+    $(".box-cargando").css("display","block");
+
     $.ajax({
           type: 'POST',
           url: '/post/rest/insertar_usuario.php',
           dataType: 'json',
           data: ({email: email, nombre: nombre, apellidos: apellidos, password: password1}),
           success: function(data) {
-              console.log(data);
+              $(".box-cargando").css("display","none");
+              $(".usuario-registrado").css("display","block");
           },
           error: function(error) {
-              console.log(error);
+              $(".box-cargando").css("display","none");
+              (".registro-fallido").css("display","block");
           }
     });
 }
