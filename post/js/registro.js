@@ -52,18 +52,36 @@ function registrarUsuario() {
     $(".formulario").css("display","none");
     $(".box-cargando").css("display","block");
 
+
     $.ajax({
-          type: 'POST',
-          url: '/post/rest/insertar_usuario.php',
+          url: '/post/rest/comprobar_email.php',
           dataType: 'json',
-          data: ({email: email, nombre: nombre, apellidos: apellidos, password: password1}),
+          data: ({email: email}),
           success: function(data) {
-              $(".box-cargando").css("display","none");
-              $(".usuario-registrado").css("display","block");
+              if(data.mensaje != "No encontrado"){
+                  $(".box-cargando").css("display","none");
+                  $(".registro-fallido .info-registro").text("Ya hay un usuario registrado con ese email");
+                  $(".registro-fallido").css("display","block");
+              } else {
+                  $.ajax({
+                        type: 'POST',
+                        url: '/post/rest/insertar_usuario.php',
+                        dataType: 'json',
+                        data: ({email: email, nombre: nombre, apellidos: apellidos, password: password1}),
+                        success: function(data) {
+                            $(".box-cargando").css("display","none");
+                            $(".usuario-registrado").css("display","block");
+                        },
+                        error: function(error) {
+                            $(".box-cargando").css("display","none");
+                            $(".registro-fallido").css("display","block");
+                        }
+                  });
+              }
           },
           error: function(error) {
-              $(".box-cargando").css("display","none");
-              (".registro-fallido").css("display","block");
+              console.log(error);
           }
     });
+
 }

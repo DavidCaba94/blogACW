@@ -18,6 +18,18 @@ class Users
         }
     }
 
+    public static function getEmail($email)
+    {
+        $consulta = "SELECT email FROM blog_usuarios WHERE email = '$email'";
+        try {
+            $comando = Database::getInstance()->getDb()->prepare($consulta);
+            $comando->execute();
+            return $comando->fetchAll(PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            return false;
+        }
+    }
+
     public static function getAllSolicitudes()
     {
         $consulta = "SELECT * FROM solicitudes_premium";
