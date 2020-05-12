@@ -7,8 +7,8 @@ class Users
     }
     public static function getAll($email,$pass)
     {
-        //$consulta = "SELECT id_customer, firstname, lastname, email, passwd FROM psac_customer WHERE email = '$email' AND passwd = '$pass'";
-        $consulta = "SELECT id_customer, firstname, lastname, email, passwd FROM psac_customer WHERE email = '$email'";
+        $consulta = "SELECT id_customer, firstname, lastname, email, passwd FROM blog_usuarios WHERE email = '$email' AND passwd = '$pass'";
+        //$consulta = "SELECT id_customer, firstname, lastname, email, passwd FROM psac_customer WHERE email = '$email'";
         try {
             $comando = Database::getInstance()->getDb()->prepare($consulta);
             $comando->execute();
@@ -60,42 +60,16 @@ class Users
         return $cmd;
     }
 
-    public static function insert(
-        $username,
-		    $password,
-        $name,
-    		$surname,
-    		$email,
-        $foto,
-        $conectado,
-        $referido,
-        $premium
-    )
-    {
-        $comando = "INSERT INTO user ( " .
-            "username," .
-      			"password," .
-      			"name," .
-      			"surname," .
+    public static function insert($email, $nombre, $apellidos, $password) {
+        $comando = "INSERT INTO blog_usuarios ( " .
             "email," .
-            "foto," .
-            "conectado," .
-            "referido," .
-            " premium)" .
-            " VALUES( ?,?,?,?,?,?,?,?,?)";
+      			"nombre," .
+      			"apellidos," .
+      			"password)" .
+            " VALUES( ?,?,?,?)";
         $sentencia = Database::getInstance()->getDb()->prepare($comando);
         return $sentencia->execute(
-            array(
-              $username,
-              $password,
-              $name,
-              $surname,
-              $email,
-              $foto,
-              $conectado,
-              $referido,
-              $premium
-            )
+            array($email, $nombre, $apellidos, $password)
         );
     }
 
