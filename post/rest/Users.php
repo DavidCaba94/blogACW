@@ -7,7 +7,6 @@ class Users
     }
     public static function getAll($email,$pass)
     {
-        //$consulta = "SELECT id_customer, firstname, lastname, email, passwd FROM blog_usuarios WHERE email = '$email' AND passwd = '$pass'";
         $consulta = "SELECT id, email, nombre, apellidos, password FROM blog_usuarios WHERE email = '$email' AND password = '$pass'";
         try {
             $comando = Database::getInstance()->getDb()->prepare($consulta);

@@ -6,6 +6,14 @@ var resultadosEncontrados = 0;
 
 $(document).ready(function(){
 
+    var usuario = localStorage.getItem('userObject');
+    if(JSON.parse(usuario) != null) {
+        usuario = JSON.parse(usuario);
+        $(".text-sesion").text(usuario.nombre);
+        $(".info-error").text("Sesión iniciada");
+        $(".info-error").css("color", "#00e05f");
+    }
+
     const xhttp = new XMLHttpRequest();
     xhttp.open('GET', 'post/json/posts.json', true);
     xhttp.send();
@@ -90,9 +98,9 @@ $(document).ready(function(){
     });
 
     $("#boton-cerrar").on("click", function() {
-        localStorage.setItem("Usuario", null);
-        $("#email").text("");
-        $("#password").text("");
+        localStorage.setItem('userObject', null);
+        $("#email").val("");
+        $("#password").val("");
         $(".text-sesion").text("Iniciar sesión");
         $(".info-error").text("Entra o regístrate");
         $(".info-error").css("color", "#a0a0a0");
@@ -242,7 +250,7 @@ function obtenerUsuario() {
               $(".info-error").text("Sesión iniciada");
               $(".info-error").css("color", "#00e05f");
               $(".aviso-login").fadeIn();
-              localStorage.setItem("Usuario", data.users[0]);
+              localStorage.setItem('userObject', JSON.stringify(data.users[0]));
               var dropdowns = document.getElementsByClassName("dropdown-content");
               var i;
               for (i = 0; i < dropdowns.length; i++) {
