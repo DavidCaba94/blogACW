@@ -1,4 +1,4 @@
-
+var usuario = "null";
 $(document).ready(function(){
     $('.owl-carousel').owlCarousel({
         loop:true,
@@ -17,7 +17,7 @@ $(document).ready(function(){
         }
     });
 
-    var usuario = localStorage.getItem('userObject');
+    usuario = localStorage.getItem('userObject');
     if(JSON.parse(usuario) != null) {
         usuario = JSON.parse(usuario);
         $(".text-sesion").text(usuario.nombre);
@@ -40,12 +40,15 @@ $(document).ready(function(){
 
     $("#boton-cerrar").on("click", function() {
         localStorage.setItem('userObject', null);
+        usuario = "null";
         $("#email").val("");
         $("#password").val("");
         $(".text-sesion").text("Iniciar sesión");
         $(".info-error").text("Entra o regístrate");
         $(".info-error").css("color", "#a0a0a0");
         $(".aviso-logout").fadeIn();
+        $(".box-info-comentarios").css("display", "block");
+        $(".box-form-comentarios").css("display", "none");
         var dropdowns = document.getElementsByClassName("dropdown-content");
         var i;
         for (i = 0; i < dropdowns.length; i++) {
@@ -57,6 +60,16 @@ $(document).ready(function(){
         setTimeout(function() {
             $(".aviso-logout").fadeOut();
         }, 5000);
+    });
+
+    $("#boton-comentar").on("click", function() {
+        if(usuario != "null") {
+            $(".box-info-comentarios").css("display", "none");
+            $(".box-form-comentarios").css("display", "block");
+        } else if(usuario == "null") {
+            $(".txt-info-comentarios").text("Debes iniciar sesión para poder comentar");
+            $(".txt-info-comentarios").css("color", "#e26060");
+        }
     });
 
     // Cerrar dropdown login si pincho fuera
@@ -95,6 +108,8 @@ function obtenerUsuario() {
               openDropdown.classList.remove('show');
             }
           }
+          usuario = localStorage.getItem('userObject');
+          usuario = JSON.parse(usuario);
           setTimeout(function() {
               $(".aviso-login").fadeOut();
           }, 5000);
