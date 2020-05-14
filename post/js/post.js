@@ -153,20 +153,18 @@ function enviarComentario(comment) {
           dataType: 'json',
           data: ({id_post: parseInt($("#id_post").val(), 10), id_usuario: parseInt(usuario.id, 10), comentario: comment}),
           success: function(data) {
-              $(".aviso-comentario").fadeIn();
               $(".box-cargando").css("display","none");
+              $(".txt-info-comentarios").text("Comentario enviado correctamente");
+              $(".txt-info-comentarios").css("color", "#00e05f");
               $(".box-info-comentarios").css("display","block");
               $("#comentario").val("");
               obtenerComentarios();
-              setTimeout(function() {
-                  $(".aviso-comentario").fadeOut();
-              }, 5000);
           },
           error: function(error) {
-              $(".aviso-comentario-ko").fadeIn();
-              setTimeout(function() {
-                  $(".aviso-comentario-ko").fadeOut();
-              }, 5000);
+              $(".txt-info-comentarios").text("Error al enviar el comentario");
+              $(".txt-info-comentarios").css("color", "#e26060");
+              $(".box-info-comentarios").css("display","block");
+              $("#comentario").val("");
           }
     });
 }
