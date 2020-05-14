@@ -17,6 +17,18 @@ class Users
         }
     }
 
+    public static function getComments($id_post)
+    {
+        $consulta = "SELECT id_usuario, comentario FROM blog_comentarios WHERE id_post = '$id_post' ORDER BY id ASC";
+        try {
+            $comando = Database::getInstance()->getDb()->prepare($consulta);
+            $comando->execute();
+            return $comando->fetchAll(PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            return false;
+        }
+    }
+
     public static function getEmail($email)
     {
         $consulta = "SELECT email FROM blog_usuarios WHERE email = '$email'";
@@ -81,6 +93,18 @@ class Users
         $sentencia = Database::getInstance()->getDb()->prepare($comando);
         return $sentencia->execute(
             array($email, $nombre, $apellidos, $password)
+        );
+    }
+
+    public static function insertComment($id_post, $id_usuario, $comentario) {
+        $comando = "INSERT INTO blog_comentarios ( " .
+      			"id_post," .
+      			"id_usuario," .
+      			"comentario)" .
+            " VALUES( ?,?,?)";
+        $sentencia = Database::getInstance()->getDb()->prepare($comando);
+        return $sentencia->execute(
+            array($id_post, $id_usuario, $comentario)
         );
     }
 

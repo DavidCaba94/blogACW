@@ -25,6 +25,8 @@ $(document).ready(function(){
         $(".info-error").css("color", "#00e05f");
     }
 
+    obtenerComentarios();
+
     $("#desplegable-login").on("click", function() {
         $("#myDropdown").addClass("show");
     });
@@ -69,6 +71,15 @@ $(document).ready(function(){
         } else if(usuario == "null") {
             $(".txt-info-comentarios").text("Debes iniciar sesión para poder comentar");
             $(".txt-info-comentarios").css("color", "#e26060");
+        }
+    });
+
+    $("#boton-enviar").on("click", function() {
+        var comment = $("#comentario").val();
+        if(comment.length > 0){
+            enviarComentario(comment);
+        } else {
+            $("#comentario").css("border", "1px solid #e26060")
         }
     });
 
@@ -131,4 +142,63 @@ function camposRellenos() {
     }
 
     return relleno;
+}
+
+function enviarComentario(comment) {
+    $(".box-form-comentarios").css("display","none");
+    $(".box-cargando").css("display","block");
+    $.ajax({
+          type: 'POST',
+          url: '/post/rest/insertar_comentario.php',
+          dataType: 'json',
+          data: ({id_post: parseInt($("#id_post").val(), 10), id_usuario: parseInt(usuario.id, 10), comentario: comment}),
+          success: function(data) {
+              $(".aviso-comentario").fadeIn();
+              $(".box-cargando").css("display","none");
+              $(".box-info-comentarios").css("display","block");
+              $("#comentario").val("");
+              obtenerComentarios();
+              setTimeout(function() {
+                  $(".aviso-comentario").fadeOut();
+              }, 5000);
+          },
+          error: function(error) {
+              $(".aviso-comentario-ko").fadeIn();
+              setTimeout(function() {
+                  $(".aviso-comentario-ko").fadeOut();
+              }, 5000);
+          }
+    });
+}
+
+function obtenerComentarios() {
+    $.ajax({
+      url: '/post/rest/obtener_comentarios.php',
+      dataType: 'json',
+      data: ({id_post: parseInt($("#id_post").val(), 10)}),
+      success: function(data) {
+          $(".lista-comentarios").html('');
+          if(data.mensaje != "KO"){
+              var comentarios = [];
+              comentarios = data.comments;
+              for(var i=0; i<comentarios.length; i++) {
+                  $(".lista-comentarios").append(
+                      '<div class="box-comentario">'+
+                          '<p class="nombre-comentario">'+ comentarios[i].id_usuario +'</p>'+
+                          '<p class="texto-comentario">'+ comentarios[i].comentario +'</p>'+
+                      '</div>'
+                  );
+              }
+          } else {
+              $(".lista-comentarios").append(
+                  '<div class="sin-comentarios">'+
+                      '<p class="txt-sin-comentarios">Todavía no hay comentarios, puedes ser el primero en comentar</p>'+
+                  '</div>'
+              );
+          }
+      },
+      error: function(error) {
+          console.log(error);
+      }
+    });
 }

@@ -26,6 +26,10 @@
 
     </head>
   <body>
+      <!--IMPORTANTE CAMBIAR EL ID DEL POST -->
+      <input type="hidden" id="id_post" name="id_post" value="1">
+      <!--IMPORTANTE CAMBIAR EL ID DEL POST -->
+
       <div class="menu">
           <a href="/blog"><img class="img-menu" src="img/logo-menu.png" /></a>
           <p class="titulo-menu">AL CORTE WEAR</p>
@@ -50,6 +54,12 @@
       </div>
       <div class="aviso-logout">
           <p class="texto-aviso">Has cerrado sesión</p>
+      </div>
+      <div class="aviso-comentario">
+          <p class="texto-aviso">Comentario enviado</p>
+      </div>
+      <div class="aviso-comentario-ko">
+          <p class="texto-aviso">Comentario fallido</p>
       </div>
       <div class="contenedor-titulo">
           <h1 class="titulo-post">Volkswagen Scirocco Typhoon R Line 2017</h1>
@@ -355,8 +365,12 @@
                   <textarea class="form-control" rows="5" id="comentario"></textarea>
                   <div id="boton-enviar" class="boton-post">Enviar</div>
               </div>
+              <div class="box-cargando">
+                  <div id="cargando" class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+              </div>
           </div>
           <div class="linea-separadora"></div>
+          <div class="lista-comentarios"></div>
       </div>
       <div class="footer">
         <a href="/">AL CORTE WEAR</a>

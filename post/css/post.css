@@ -106,6 +106,162 @@
 	padding: 20px;
 }
 
+.lista-comentarios {
+	width: 100%;
+	padding: 10px;
+}
+
+.box-comentario {
+	width: 100%;
+	background-color: white;
+	padding: 10px;
+	border-radius: 10px;
+	margin-top: 10px;
+}
+
+.nombre-comentario {
+	font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.texto-comentario {
+	margin-bottom: 10px;
+}
+
+.sin-comentarios {
+	width: 100%;
+	padding: 10px;
+	text-align: center;
+}
+
+.box-cargando {
+    display: none;
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+    margin-top: 200px;
+    background-color: #000000b5;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.aviso-comentario {
+	display: none;
+	position: fixed;
+    width: 200px;
+    height: 30px;
+    margin-left: calc(50% - 100px);
+    margin-top: 20px;
+    background-color: #00e05f;
+    border-radius: 25px;
+    text-align: center;
+    padding-top: 5px;
+    z-index: 99;
+}
+
+.aviso-comentario-ko {
+	display: none;
+	position: fixed;
+    width: 200px;
+    height: 30px;
+    margin-left: calc(50% - 100px);
+    margin-top: 20px;
+    background-color: #e26060;
+    border-radius: 25px;
+    text-align: center;
+    padding-top: 5px;
+    z-index: 99;
+}
+
+/* ICONO CARGANDO */
+
+.lds-roller {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+.lds-roller div {
+  animation: lds-roller 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  transform-origin: 40px 40px;
+}
+.lds-roller div:after {
+  content: " ";
+  display: block;
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #fff;
+  margin: -4px 0 0 -4px;
+}
+.lds-roller div:nth-child(1) {
+  animation-delay: -0.036s;
+}
+.lds-roller div:nth-child(1):after {
+  top: 63px;
+  left: 63px;
+}
+.lds-roller div:nth-child(2) {
+  animation-delay: -0.072s;
+}
+.lds-roller div:nth-child(2):after {
+  top: 68px;
+  left: 56px;
+}
+.lds-roller div:nth-child(3) {
+  animation-delay: -0.108s;
+}
+.lds-roller div:nth-child(3):after {
+  top: 71px;
+  left: 48px;
+}
+.lds-roller div:nth-child(4) {
+  animation-delay: -0.144s;
+}
+.lds-roller div:nth-child(4):after {
+  top: 72px;
+  left: 40px;
+}
+.lds-roller div:nth-child(5) {
+  animation-delay: -0.18s;
+}
+.lds-roller div:nth-child(5):after {
+  top: 71px;
+  left: 32px;
+}
+.lds-roller div:nth-child(6) {
+  animation-delay: -0.216s;
+}
+.lds-roller div:nth-child(6):after {
+  top: 68px;
+  left: 24px;
+}
+.lds-roller div:nth-child(7) {
+  animation-delay: -0.252s;
+}
+.lds-roller div:nth-child(7):after {
+  top: 63px;
+  left: 17px;
+}
+.lds-roller div:nth-child(8) {
+  animation-delay: -0.288s;
+}
+.lds-roller div:nth-child(8):after {
+  top: 56px;
+  left: 12px;
+}
+@keyframes lds-roller {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* FIN ICONO CARGANDO */
+
 /* PRODUCTOS */
 
 .d-flex {
