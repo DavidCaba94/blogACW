@@ -19,7 +19,12 @@ class Users
 
     public static function getComments($id_post)
     {
-        $consulta = "SELECT id_usuario, comentario FROM blog_comentarios WHERE id_post = '$id_post' ORDER BY id ASC";
+        $consulta = "SELECT u.nombre, u.apellidos, c.comentario
+                    FROM blog_comentarios c
+                    INNER JOIN blog_usuarios u
+                    ON u.id = c.id_usuario
+                    WHERE c.id_post = '$id_post'
+                    ORDER BY c.id ASC";
         try {
             $comando = Database::getInstance()->getDb()->prepare($consulta);
             $comando->execute();

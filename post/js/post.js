@@ -182,7 +182,7 @@ function obtenerComentarios() {
               for(var i=0; i<comentarios.length; i++) {
                   $(".lista-comentarios").append(
                       '<div class="box-comentario">'+
-                          '<p class="nombre-comentario">'+ comentarios[i].id_usuario +'</p>'+
+                          '<p class="nombre-comentario">'+ comentarios[i].nombre + ' ' + comentarios[i].apellidos + '</p>'+
                           '<p class="texto-comentario">'+ comentarios[i].comentario +'</p>'+
                       '</div>'
                   );
